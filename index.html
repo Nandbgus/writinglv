@@ -166,9 +166,9 @@ The content used here is a part from Harry Potter and the Chamber of Secrets, wh
 
         #toggleSound {
             padding: 15px;
-            background: rgba(0, 255, 234, 0.26);
+            background: rgb(255, 0, 0);
             border: none;
-            color: black;
+            color: white;
             border-end-end-radius: 30%;
             font-family: 'Courier New', Courier, monospace;
             font-weight: bolder;
@@ -181,7 +181,7 @@ The content used here is a part from Harry Potter and the Chamber of Secrets, wh
             position: absolute;
             right: 0;
             padding: 15px;
-            background: rgb(0, 255, 234);
+            background: rgb(255, 0, 0);
             border: none;
             color: black;
             border-end-start-radius: 30%;
@@ -228,11 +228,13 @@ The content used here is a part from Harry Potter and the Chamber of Secrets, wh
                     toggleSoundButton.innerText = 'Stop';
                     toggleSoundButton.style.transform = 'translate(-50%, -100%)';
                     toggleSoundButton.style.background = "white";
+                    toggleSoundButton.style.color = "black";
                 } else {
                     audio.pause();
                     toggleSoundButton.innerText = 'Play Music';
                     toggleSoundButton.style.transform = 'translate(0%, -100%)';
                     toggleSoundButton.style.background = "red";
+                    toggleSoundButton.style.color = "white";
                 }
             });
         });
@@ -252,7 +254,7 @@ The content used here is a part from Harry Potter and the Chamber of Secrets, wh
                     text: "Bersamamu",
                     y: 150,
                     fromCurrentPosition: { y: false },
-                    duration: 4600
+                    duration: 4800
                 },
                 {
                     text: "Ku akan dicintai dengan tulus",
