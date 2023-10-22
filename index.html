@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Nanaayaangg</title>
+    <link rel="icon" type="image/x-icon" href="R.png">
     <script src="vara.min.js" type="text/javascript"></script>
     <style>
         /*
@@ -162,6 +163,32 @@ The content used here is a part from Harry Potter and the Chamber of Secrets, wh
             }
 
         }
+
+        #toggleSound {
+            padding: 15px;
+            background: rgba(0, 255, 234, 0.26);
+            border: none;
+            color: black;
+            border-end-end-radius: 30%;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bolder;
+            transform: translate(0%, -100%);
+            margin-top: 10px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        #reload {
+            position: absolute;
+            right: 0;
+            padding: 15px;
+            background: rgb(0, 255, 234);
+            border: none;
+            color: black;
+            border-end-start-radius: 30%;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bolder;
+            transform: translate(1%, -100%);
+        }
     </style>
 </head>
 
@@ -185,10 +212,31 @@ The content used here is a part from Harry Potter and the Chamber of Secrets, wh
         </ul>
     </div>
 
+    <button id="toggleSound">Play Music</button>
 
 
 
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var audio = document.querySelector('audio');
+            var toggleSoundButton = document.getElementById('toggleSound');
+
+
+            toggleSoundButton.addEventListener('click', function () {
+                if (audio.paused) {
+                    audio.play();
+                    toggleSoundButton.innerText = 'Stop';
+                    toggleSoundButton.style.transform = 'translate(-50%, -100%)';
+                    toggleSoundButton.style.background = "white";
+                } else {
+                    audio.pause();
+                    toggleSoundButton.innerText = 'Play Music';
+                    toggleSoundButton.style.transform = 'translate(0%, -100%)';
+                    toggleSoundButton.style.background = "red";
+                }
+            });
+        });
+
 
 
         var fontSize = 42;
