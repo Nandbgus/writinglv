@@ -177,17 +177,22 @@ The content used here is a part from Harry Potter and the Chamber of Secrets, wh
             transition: transform 0.3s ease, background 0.3s ease;
         }
 
-        #reload {
-            position: absolute;
-            right: 0;
-            padding: 15px;
-            background: rgb(255, 0, 0);
-            border: none;
+        #reloadPopup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+        }
+
+        #reloadButton {
+            padding: 10px;
             color: black;
-            border-end-start-radius: 30%;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bolder;
-            transform: translate(1%, -100%);
         }
     </style>
 </head>
@@ -197,6 +202,11 @@ The content used here is a part from Harry Potter and the Chamber of Secrets, wh
     <div id="container"></div>
     <div class="background">
     </div>
+    <div id="reloadPopup">
+        <p>Lirik telah selesai. di reload sayaanggkuuu</p><br>
+        <button id="reloadButton">Reload</button>
+    </div>
+
     <div class="area">
         <ul class="circles">
             <li></li>
@@ -298,6 +308,13 @@ The content used here is a part from Harry Potter and the Chamber of Secrets, wh
                     delay: 1000,
                     duration: 4000
                 },
+                {
+                    text: ":)",
+                    y: 150,
+                    fromCurrentPosition: { y: false },
+                    delay: 1000,
+                    duration: 4000
+                },
 
             ],
             {
@@ -316,10 +333,25 @@ The content used here is a part from Harry Potter and the Chamber of Secrets, wh
                 if (erase) {
                     o.container.style.transition = "opacity 1s 1s";
                     o.container.style.opacity = 0;
+
+                    // Tampilkan pop-up reload setelah lirik "aku yang terbaik untukmu"
+                    if (i == 7) {
+                        setTimeout(function () {
+                            var reloadPopup = document.getElementById('reloadPopup');
+                            reloadPopup.style.display = 'flex';
+                        }, 2000); // Menunggu 2 detik sebelum menampilkan pop-up
+                    }
                 }
             });
-
         });
+
+        document.getElementById('reloadButton').addEventListener('click', function () {
+            // Reload halaman
+            location.reload();
+        });
+
+
+
 
 
 
